@@ -9,8 +9,9 @@ const dotenv = require('dotenv');
 const axios = require('axios');
 const usersRouter = require('./routes/api/users');
 const chatRouter = require('./routes/api/chat');
-const { checkAuthorization } = require('./routes/middlewares');
-const { User, ContactList, ContactBook, Message } = require('./db/models');
+// const { checkAuthorization } = require('./routes/middlewares');
+const { User, Message } = require('./db/models');
+const { Console } = require('console');
 
 // Инициализируем хранение переменных окружения в файл .env
 dotenv.config();
@@ -84,8 +85,9 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-const socketUsers = [];
+const socketUsers = {};
 io.on('connection', async (socket) => {
+  socket.users = socketUsers;
   // Коннект пользователя
   const { login, id: userId } = socket.request.session.user;
   socket.auth = { login, userId, isConnected: true };
@@ -96,8 +98,8 @@ io.on('connection', async (socket) => {
   // eslint-disable-next-line no-restricted-syntax
   for (const [socketId, socket] of io.of('/').sockets) {
     // console.log(socket)
-    if (socketUsers.every((user) => user.login !== login)) {
-      socketUsers.push({ socketId, userId, login });
+    if (!socket[login]) {
+      socketUsers[login] = { socketId, userId, login };
     }
   }
 
@@ -116,13 +118,33 @@ io.on('connection', async (socket) => {
       socket.emit('user:weather', forecast);
     } else {
       const messData = { date: new Date(), message, login };
-      const messageEntry = await Message.create({
-        AuthorId: userId,
-        ReceiverId: 2,
-        message,
-      });
-      io.emit('chat:getMessage', messData);
+      // const messageEntry = await Message.create({
+      //   AuthorId: userId,
+      //   ReceiverId: 2,
+      //   message,
+      // });
+      io.emit('chat:all:getMessage', messData);
     }
+  });
+
+  // Приватное сообщение
+  socket.on('private', async ({ message, to }) => {
+    const toUser = await User.findOne({
+      where: {
+        login: to,
+      },
+    });
+    const messEntry = await Message.create({
+      AuthorId: socket.auth.userId,
+      ReceiverId: toUser.id,
+      message,
+    });
+    console.log('TO', to, message, socketUsers[to]);
+    socket.to(socketUsers[to].socketId).emit('private', {
+      date: messEntry.createdAt,
+      message,
+      login: socket.auth.login,
+    });
   });
 
   // Дисконнект

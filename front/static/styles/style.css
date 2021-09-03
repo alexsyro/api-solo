@@ -89,7 +89,11 @@ main,
   border-radius: 15px;
 }
 
-.contact-info {
+.user-contact {
+  color: #0084ff;
+}
+
+.contact-info-unselected {
   display: flex;
   background-color: rgb(30, 30, 30);
   border: 1px solid gray;
@@ -99,25 +103,41 @@ main,
   align-items: center;
 }
 
+.contact-info-selected {
+  display: flex;
+  background-color: rgb(190, 190, 190);
+  border: 3px solid lightgreen;
+  margin: 2px;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .contact-status {
   background-color: lawngreen;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   border: 1px solid black;
-  border-radius: 5px;
+  color: black;
+  text-align: center;
+  font-size: 10pt;
+  /* border-radius: 5px; */
 }
 
 #message-table {
+  z-index: 100;
   display: flex;
   border: 2.5px solid black;
   background-color: white;
   width: 85vw;
   max-width: 90vw;
-  height: inherit;
+  height: 80vh;
   max-height: 80vh;
   padding: 10px;
-  overflow-y: auto;
-  overflow-wrap: break-word;
+  overflow-y: scroll;
+  scroll-behavior: auto;
+  /* overflow-wrap: break-word; */
+  flex-wrap: nowrap;
   align-items: flex-start;
   flex-direction: column;
   justify-content: end;
@@ -173,7 +193,7 @@ main,
   padding: 5px;
   background-color: rgb(210, 210, 210);
   display: flex;
-  min-height: 5%;
+  min-height: 8vh;
   max-width: 100%;
   height: 8vh;
   flex-wrap: nowrap;

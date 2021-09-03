@@ -1,13 +1,17 @@
 <div class='chat-container'>
   <div id='contacts'>
-    <div class='contact-info'>
-      <a href='#All' data-userLogin='All'>[Общий]</a>
+    <div id='all' class='contact-info-selected'>
+      <a href='#all' class='user-contact' data-userLogin='all'>[Общий]</a>
     </div>
     {{#each contacts}}
-      <div class='contact-info'>
-        <a href='#{{this.User.login}}' data-userLogin={{this.User.login}}>[{{this.User.login}}]
+      <div id='{{this.User.login}}' class='contact-info-unselected'>
+        <a
+          class='user-contact'
+          href='#{{this.User.login}}'
+          data-userLogin={{this.User.login}}
+        >[{{this.User.login}}]
           {{this.User.FullName}}</a>
-        <div id='online {{this.User.login}}' class='contact-status'></div>
+        <div id='online-{{this.User.login}}' class='contact-status'></div>
       </div>
     {{/each}}
   </div>
