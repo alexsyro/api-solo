@@ -1,0 +1,5 @@
+<div id='search-div'><h1>Результаты поиска:</h1>
+{{#each users}}
+  <a href='/api/users/{{this.login}}'>{{this.FullName}}</a>
+{{/each}}
+</div>

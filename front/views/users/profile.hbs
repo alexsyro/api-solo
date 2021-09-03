@@ -1,0 +1,8 @@
+<h1> Имя: {{user.FullName}}</h1>
+<h1> Ник: {{user.login}}</h1>
+{{#if isOwnerObserve}}{{else}}
+  <form action='/api/users/add/{{user.login}}' method='POST' data-userId={{user.login}}>
+
+    <button>Добавить в друзья</button>
+  </form>
+{{/if}}

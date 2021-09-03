@@ -1,0 +1,17 @@
+<div class='modal-view'>
+  <a href='/registration'>Регистрация</a>
+  <form action='/api/users/' method='POST'>
+    <div class='mb-3'>
+      <label for='inputCredentials' class='form-label' style='color: white;'>Логин / Email</label>
+      <input type='text' name='credentials' class='form-control' id='inputCredentials' aria-describedby='creditHelp' />
+      <div id='creditHelp' class='form-text'>Введите логин или email</div>
+    </div>
+    <div class='mb-3'>
+      <label for='inputPassword' class='form-label' style='color: white;'>Пароль</label>
+      <input type='password' name='password' class='form-control' id='inputPassword' />
+    </div>
+    <div class='d-grid gap-2'>
+      <button class='btn btn-primary'>Подтвердить</button>
+    </div>
+  </form>
+</div>

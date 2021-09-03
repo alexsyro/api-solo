@@ -1,0 +1,45 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- CSS only -->
+    <link
+      href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css'
+      rel='stylesheet'
+      integrity='sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We'
+      crossorigin='anonymous'
+    />
+    <script src='/scripts/index.js' defer></script>
+    <link rel='stylesheet' href='/styles/style.css' />
+    <title>ForkThe Millenium</title>
+  </head>
+  <body>
+    <header>
+      <div class='left-side'>
+        <p>Fork The Millenium</p>
+      </div>
+      {{#if session.isAuthorized}}
+      <form id='searchForm' action="/api/users/" method='GET'>
+      <input name='searchString' type='text' placeholder="Поиск пользователей"/>
+      <button>Поиск</button>
+      </form>
+      {{/if}}
+      <form id='credentialForm' class='left-side' name='credentialForm'>
+        {{#if session.isAuthorized}}
+          <a id='profileLink' href='/api/users/{{this.session.user.login}}'>Личный кабинет</a>
+          <a id='profileLink' href='/api/chat'>Чат</a>
+          <a id='logoutLink' href='/logout'>Выйти</a>
+        {{/if}}
+      </form>
+    </header>
+    <main>
+      {{#if session.isAuthorized}}{{else}}
+      {{/if}}
+      <div id='content-container' class='center-side'>
+        {{{body}}}
+      </div>
+    </main>
+  </body>
+</html>

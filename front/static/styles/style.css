@@ -1,0 +1,227 @@
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(37, 36, 33);
+  color: white;
+}
+
+header {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
+
+header {
+  height: 5em;
+  background-color: rgb(30, 30, 30);
+  border: 1px solid black;
+}
+
+header p {
+  font-size: 24pt;
+}
+
+#credentialForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  min-height: 40px;
+}
+
+main,
+#content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.modal-view {
+  position: fixed;
+  left: 40%;
+  top: 30%;
+  align-self: center;
+  place-self: center;
+  justify-self: center;
+  margin: auto;
+  width: 400px;
+  height: auto;
+  color: white;
+}
+
+#search-div {
+  width: 50%;
+}
+
+.chat-container {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 90vh;
+  /* background-color: burlywood; */
+}
+
+.message-container {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  /* background-color: cadetblue; */
+  height: inherit;
+  width: 90vw;
+  max-width: 90vw;
+}
+
+#contacts {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 10vw;
+  min-width: 10vw;
+  background-color: rgb(20, 40, 0);
+  overflow-y: auto;
+  border: 2.5px solid black;
+  border-radius: 15px;
+}
+
+.contact-info {
+  display: flex;
+  background-color: rgb(30, 30, 30);
+  border: 1px solid gray;
+  margin: 2px;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-status {
+  background-color: lawngreen;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#message-table {
+  display: flex;
+  border: 2.5px solid black;
+  background-color: white;
+  width: 85vw;
+  max-width: 90vw;
+  height: inherit;
+  max-height: 80vh;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: end;
+  margin-right: 10px;
+  border-radius: 15px;
+  color: black;
+}
+
+.send-mess-container {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* background-color: cornflowerblue; */
+  height: 10vh;
+}
+
+.text-container {
+  width: 85vw;
+  /* background-color: crimson; */
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: baseline;
+  height: 10vh;
+  border: 2.5px solid black;
+  border-radius: 15px;
+}
+
+#text {
+  margin-left: 5px;
+  margin-top: 8px;
+  height: 8vh;
+  width: 75vw;
+  /* background-color: slategrey; */
+  border: 2.5px solid black;
+  border-radius: 10px;
+  color: black;
+}
+
+#sendText {
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 9vw;
+  height: 3vh;
+  border-radius: 10px;
+}
+
+/* Сообщения  */
+.message-box {
+  margin: 1px;
+  padding: 5px;
+  background-color: rgb(210, 210, 210);
+  display: flex;
+  min-height: 5%;
+  max-width: 100%;
+  height: 8vh;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.message-info {
+  display: flex;
+  height: 3.2vh;
+}
+
+.message-info .date {
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: firebrick;
+  margin-right: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  max-height: 25px;
+  min-height: 25px;
+}
+
+.message-info .login {
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: green;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-size: 14pt;
+  color: black;
+  max-height: 25px;
+  min-height: 25px;
+}
+
+#message {
+  color: black;
+  background-color: rgb(223, 215, 215);
+  font-size: 14pt;
+  width: 100%;
+  max-width: 75vh;
+  word-wrap: break-word;
+}
+
+.weatherDiv {
+  background-color: lightblue;
+  padding: 5px;
+  border-radius: 5px;
+}

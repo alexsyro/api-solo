@@ -1,0 +1,29 @@
+<div class='modal-view'>
+  <h1>Регистрация</h1>
+  <a href='/login'>Логин</a>
+  <form action='/api/users/new' method='POST'>
+    <div class='input-group mb-3'>
+      <span class='input-group-text' id='basic-addon2'>Имя</span>
+      <input type='text' class='form-control' name='fullName' />
+    </div>
+    <div class='input-group mb-3'>
+      <span class='input-group-text' id='basic-addon2'>Логин</span>
+      <input type='text' class='form-control' name='login' />
+    </div>
+    <div class='input-group mb-3'>
+      <span class='input-group-text' id='basic-addon2'>Почта</span>
+      <input type='text' class='form-control' name='email' />
+    </div>
+    <div class='input-group mb-3'>
+      <span class='input-group-text' id='basic-addon2'>Пароль</span>
+      <input type='password' class='form-control' name='password' />
+    </div>
+    <div class='input-group mb-3'>
+      <span class='input-group-text' id='basic-addon2'>Телефон</span>
+      <input type='phone' class='form-control' name='phone' />
+    </div>
+    <div class='d-grid gap-2'>
+      <button class='btn btn-primary' type='submit'>Подтвердить</button>
+    </div>
+  </form>
+</div>
