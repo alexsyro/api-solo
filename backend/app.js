@@ -9,9 +9,7 @@ const dotenv = require('dotenv');
 const axios = require('axios');
 const usersRouter = require('./routes/api/users');
 const chatRouter = require('./routes/api/chat');
-// const { checkAuthorization } = require('./routes/middlewares');
 const { User, Message } = require('./db/models');
-const { Console } = require('console');
 
 // Инициализируем хранение переменных окружения в файл .env
 dotenv.config();
