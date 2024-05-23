@@ -1,2 +1,2 @@
-# api-solo
-Чат с возможность добавления пользователей в друзья и созданием приватной переписки.
+# Socket io chat
+A chat with the ability to add users as friends and create private conversations.
